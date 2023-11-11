@@ -1,0 +1,122 @@
+---
+title: 'Agile Teams Quick Playbook'
+date: '2023-10-30'
+lastmod: '2023-10-30'
+tags: ['agile', 'mvp', 'playbook']
+draft: false
+summary: 'Engineering quality into your SDLC by adopting a shift left team mindset can lead to higher quality outcomes with fewer bugs and happier customers'
+images: ['/static/images/agilemvp.png']
+---
+
+If you haven't already read these, give them a read:
+
+- [Agile Manifesto](https://agilemanifesto.org/)
+- [12 Principles](https://agilemanifesto.org/principles.html)
+- [Modern Agile](https://modernagile.org/)
+
+# MVP - Minimum Viable Product:
+
+Incrementally building features which solve a need
+
+Iterating based on feedback from users
+
+Identifying the appropriate place to stop or ROI is too high
+
+Prompt: “What is the smallest bit of product we can deliver that adds value”
+![Agile MVP](/static/images/agilemvp.png)
+
+# Grooming and Planning
+
+High degree of effort at this step will grease the gears for the rest of the cycle
+
+When the business need is clear and the team has an understanding of the domain and areas of uncertainty, engineers can write better code that is secure, scalable, reliable, well tested, and bug free
+
+Start with why
+
+Should have user stories (but don’t stop there!)
+
+Attached Mock-Ups, dashboards, data warehouse queries, documentation/API Docs, customer feedback, etc
+
+Should be able to be understood by ANY member of Appfolio.
+
+This means eliminating super specific technical jargon, acronyms, assumed knowledge. Spell it out.
+
+Qualify and Eliminate assumptions
+
+Identify potential risks (internal and external) to product, team, customer, code, 3rd parties, etc
+
+Identify testing needs
+
+Does it need a specific QE resource to test this story, or can it be tested by anyone?
+
+Any code or testing dependencies
+
+Identify release monitoring, metrics, KPIs, alerting, experiments… etc
+
+Keep stories small and incremental
+
+# Acceptance criteria
+
+If it’s obvious, write it down. You won’t remember what you all verbally agreed on a few days later
+
+Detailed and clear
+
+Tied back to the identified business need
+
+Each should be covered by an automated test at the appropriate level (unit, page/component, e2e/integration…etc)
+
+NOT a “QA Checklist”
+
+Should all be checked off before code review
+
+Should all be manually tested by developer prior to code review
+
+# Code Review, Testing & Release phase
+
+Drive cards through to release
+
+Don’t let things get “stuck” in this phase
+
+Have a well defined and understood process for when something can transition from Code Review to Testing, and who will perform the testing (if applicable)
+
+Testing is not the first time a story is being tested, this phase should be additional testing gestures to supplement and extend previous testing/quality assurance motions.
+
+You’re not re-verifying Acceptance criteria here, you’re building on top of those! (because the ACs should already be covered by automated tests)
+
+Execute testing strategy identified in Grooming
+
+Post release, circle back onto the release monitoring and metrics you established in grooming
+
+This is a continuous process not a 1-time check-up
+
+# Meeting hygiene
+
+Is the scheduled meeting still valuable, and/or still meeting the original purpose of the meeting
+
+Does the meeting often extend beyond the scope/purpose of the meeting? Are you grooming in standup.. etc?
+
+Keep conversations focused. It is easy to tangent and waste significant time discussing adjacent issues that aren’t blockers.
+
+Identify someone as the meeting/time steward. They have the power to interrupt when they see the team is getting off base, psychological safety is eroding, or other similar issues
+
+Do you have too many meetings? There is a price to pay for context switching (approx 25 mins to refocus after an interruptions)
+
+Could the meeting be an email or slack message/thread?
+
+# Retrospectives
+
+Taking time to reflect is important
+
+Be open minded, honest, empathetic, and professional
+
+Avoid making things personal. Focus on the impact / problem, not the person
+
+Use something structured
+
+Don’t forget to celebrate wins and your teammates
+
+Assign someone to run the retro (timing, organization, action items and follow up). If you can’t find someone on your team, ask around. There are several people in the org who know how to run an effective retrospective. Typically those that run retros don’t participate directly so they can remain objective.
+
+# In Summary
+
+I hope these guidelines can help you in your team's efforts to deliver higher quality software with reduced effort
