@@ -38,49 +38,50 @@ Agile software development relies on continuous and incremental improvement, gat
 
 Another core tenet of agile is being able to abandon ship or delete features at any time. Not everything we build will solve the problem we attempted to tackle. Sometimes things just don't stick. That's OK! These are good outcomes. And if we practiced good, incremental software delivery we know that we spent just enough time (and not more!) to come to a conculsion supported by real customer data.
 
-Identifying the appropriate place to stop or ROI is too high
+If you find yourself stuck, features are taking too long to ship, or a high degree of bugs are being introduced, use the following prompt in your next grooming or planning session to help refocus your team:
 
-Prompt: “What is the smallest bit of product we can deliver that adds value”
+> What is the smallest bit of product we can deliver that adds value
 
 # Grooming and Planning
 
-High degree of effort at this step will grease the gears for the rest of the cycle
+This phase is the one which requires the most effort to 'get it right', but will yield the highest reward if successful. If this phase is shortcut or unattended to, be ready for a world of hurt.
 
-When the business need is clear and the team has an understanding of the domain and areas of uncertainty, engineers can write better code that is secure, scalable, reliable, well tested, and bug free
+Planning and Grooming are the steps that grease the gears for the rest of the SDLC. If you don't have clear, well defined pieces of work you leave yourself exposed to scope creep, missed requirements, and bugs.
 
-Start with why
+When teams have an understanding of the risks of the domain they're working in and the business need is clear and well defined, engineers have the best chance to develop bug free software that is secure, scalable, reliable, and well tested.
 
-Should have user stories (but don’t stop there!)
+If you're struggling to write good stories, cards, tickets, or whatever you call them, here's some prompts and guidelines for what a good story should contain:
 
-Attached Mock-Ups, dashboards, data warehouse queries, documentation/API Docs, customer feedback, etc
+- On the whole, the ticket should be understandable by anyone in your ogananization or business line. This means eliminating as much technical jargon as possible. You should have clear and concise descriptions. Acronyms are well understood otherwise avoided.
+- Each ticket should have a user story. This is the building block for the rest of the ticket: "As a [user type], I want to [do something] so that [I can achieve some goal]." If you can't write a user story, you don't have a clear understanding of the problem you're trying to solve.
+- If you're shipping features with UI components, attach Mock-ups or screenshots of what you're trying to build. This will help eliminate any visual design assumptions. If you can't make sure there is an acceptance critera or requirement to "Pair with UX" during the development process. Pairing with UX in the moment of development is a great way to iterate quickly on design and layout, rather than discovering the UI is faulty later on during the software delivery cycle.
+- Attach relevant data warehouse or analytics queries
+- Attach software documentation (3rd party or Internal), or API Docs
+- Attach customer feedback, support tickets, or recorded customer calls so the team can fill in any gaps or resolve ambiguities
+- Remove or qualify as many assumptions as possible. Assumptions can lead to divergence from the goal and can introduce bugs or missed requirements.
+- Identify potential risks (internal and external) to product, team, customer, code, 3rd parties, etc
+- Identify testing needs. Can the other developers test the ticket themselves? Does it need a specific Quality Engineer to test the ticket. More on this in [TODO: this blog post]
+- Identify any code or inter/intra app dependencies. Does it need to be forward/backward compatible? What are the release and/or rollback stragegies if any?
+- Idenitfy post release monitoring, metrics, KPIs, alerting, experiments, etc.
 
-Should be able to be understood by ANY member of Appfolio.
-
-This means eliminating super specific technical jargon, acronyms, assumed knowledge. Spell it out.
-
-Qualify and Eliminate assumptions
-
-Identify potential risks (internal and external) to product, team, customer, code, 3rd parties, etc
-
-Identify testing needs
-
-Does it need a specific QE resource to test this story, or can it be tested by anyone?
-
-Any code or testing dependencies
-
-Identify release monitoring, metrics, KPIs, alerting, experiments… etc
-
-Keep stories small and incremental
+Remember to keep stories small and incremental. A little bit of delivered value today can make a big difference.
 
 # Acceptance criteria
 
-If it’s obvious, write it down. You won’t remember what you all verbally agreed on a few days later
+From all of the preparation work done in Planning and the beginning of Grooming, ACs (requirements, etc) distill all the information from above down into specific units of work. These points should be concise and clear and tie back to the business value. Where possible, each of these ACs should correspond to both:
 
-Detailed and clear
+- a code change
+- an automated test
 
-Tied back to the identified business need
+Even if your team doesn't practice TDD (Test Driven Development), you should still be writing automated tests to cover your code. Pairing app code with automation code, and treating automation code as a first class priority, will help your team move quickly and safely. Automation code is insurance to prevent future pain.
 
-Each should be covered by an automated test at the appropriate level (unit, page/component, e2e/integration…etc)
+Planning and Grooming sessions can be long and tedious, but they are arguably the most important part of the SDLC. Because there is so much information to cover, it is best to follow this rule of thumb:
+
+> If it's obvious, write it down
+
+People won't remember what the team verbally agreed to a few days prior to picking up a ticket. The agreements are usually 'obvious' and 'common sense' at the time, but there is a laundry list of things that people are keeping track of in their head. Include the obvious units of work to be done as ACs so they aren't overlooked or forgotten. A note is easily buried in a description of a ticket. An AC is a specific call out, and very easy to check against.
+
+Some tips for good Acceptance Criteria:
 
 NOT a “QA Checklist”
 
