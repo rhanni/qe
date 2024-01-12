@@ -68,7 +68,7 @@ Remember to keep stories small and incremental. A little bit of delivered value 
 
 # Acceptance criteria
 
-From all of the preparation work done in Planning and the beginning of Grooming, ACs (requirements, etc) distill all the information from above down into specific units of work. These points should be concise and clear and tie back to the business value. Where possible, each of these ACs should correspond to both:
+From all of the preparation work done in Planning and the beginning of Grooming, ACs (requirements, etc) distill all the information from above down into specific units of work. These points should be concise, clear, and tie back to the business value. Where possible, each of these ACs should correspond to both:
 
 - a code change
 - an automated test
@@ -83,58 +83,92 @@ People won't remember what the team verbally agreed to a few days prior to picki
 
 Some tips for good Acceptance Criteria:
 
-NOT a “QA Checklist”
+- NOT a “QA Checklist” (more on this in following articles)
 
-Should all be checked off before code review
+- All should be checked off before code review
 
-Should all be manually tested by developer prior to code review
+- Generally all should be manually tested by the developer prior to code review
+
+- Generally all should have corresponding automated test(s)
+
+- Concise yet descriptive
 
 # Code Review, Testing & Release phase
 
-Drive cards through to release
+In my experience, Code Review and final Testing phases are moments where the SDLC can come grinding to a halt if not managed effectively. Even within teams that practice Agile, the most 'waterfall-y' behaviors happen here.
+So you may ask, how do we smooth these phases out and keep the momentum we've built in previous steps?
 
-Don’t let things get “stuck” in this phase
+These steps take intentional driving through to release or merge. Adding WIP Limits (Work In Progress) has worked well to prevent things piling up in Code Review or In Final Testing.
+Ensure your team has a well defined process for when something is finished with Code Review and ready for the next step. Does it need 1 approval, or multiple approvals? Do you communicate in a shared team channel when code review is complete? Do you have automated notifications set up to help ease the process?
+Make sure you and your team are checking in daily during the standup ritual and address each column. This is a great opportunity to try a new stlye of Standup by 'walking the board'.
+Walking the board is a method by which move from one status to the next all the way through to the beginning or end of your status'.
 
-Have a well defined and understood process for when something can transition from Code Review to Testing, and who will perform the testing (if applicable)
+Let's take an example of a team that has a Kanban board structured with 8 columns:
 
-Testing is not the first time a story is being tested, this phase should be additional testing gestures to supplement and extend previous testing/quality assurance motions.
+- Backlog
 
-You’re not re-verifying Acceptance criteria here, you’re building on top of those! (because the ACs should already be covered by automated tests)
+- Ready for Grooming
 
-Execute testing strategy identified in Grooming
+- To Discuss
 
-Post release, circle back onto the release monitoring and metrics you established in grooming
+- Groomed/Ready to Pick up
 
-This is a continuous process not a 1-time check-up
+- In Development
+
+- In Code Review
+
+- In Final Testing
+
+- Merged/Released
+
+Walking the board in this example you can start either with To Discuss and work your way "Left to Right" through to the Merged/Released column, or move from "Right to Left" by starting with the Merged/Released column and working your way back to To Discuss.
+This is a helpful way to identify items that could be stuck, need attention, or reviewing what the team has released. It offers up moments for team members to talk about the traditional Status Updates normally discussed in standups like 'What I worked on Yesterday', 'What I will work on Today', and 'What I am blocked/need help on'
+
+The reason I prefer Walking the Board vs Status Updates style, is Walking the Board gives space for work that falls outside of the status updates and keeps the team in sync on the progress on various items. Status updates, in my opinion, feel a bit micro-managery. Managing work in progress and keeping the flow feels like a more high value activity to me.
+
+If you know the story/ticket will need final testing, you don't have to wait for the card to be done with Code Review to begin. Each step in the SDLC has space for performing testing. Whether it is
+
+- Testing assumptions during Planning/Grooming
+
+- Testing your new code during development
+
+- Testing your peer's code during Code Review
+
+- Exploratory Testing in the In Final Testing phase
+
+- Testing expected outcomes post release
+
+Final Testing shouldn't be the first time a story is being tested, this phase should be additional testing gestures to supplement and extend previous testing/quality assurance motions. When transitioning from Code Review to Final Testing, it helps to have already established who will be taking on the final testing or communicate to teammates when someone decides to own the testing on a story.
+
+During Final Testing, you’re not re-verifying Acceptance criteria here. You’re building on top of and extending those! Why? This is because the ACs should already be covered by automated tests and verified prior to code review. This is where exploratory testing provides it's value. Checking off ACs on a ticket is NOT exploratory testing, and many people think that's what they're doing when it's not. Think creatively about the interactions between your new code and existing, and how that feature could impact other features or workflows. Go beyond the scope of the change and test the system as a whole.
+
+Post release, circle back onto the release monitoring and metrics you established in grooming. Ideally you are leveraging tools like Sentry or Rollbar for exception reporting, DataDog or NewRelic for application metrics and custom event tracking, Snowflake or a Data warehouse to gather metrics, FullStory or Pendo or LogRocket for Click Tracking and Video replays. These tools help you inform the observation into your application and usage and let you know if you're on the right track, there's a bug, or you need to revisit an implementation.
 
 # Meeting hygiene
 
-Is the scheduled meeting still valuable, and/or still meeting the original purpose of the meeting
+We've all head the phrase 'I have too many meetings' or 'I don't have enough time'. Meetings are valuable when they're being used correctly but can be distracting and detrimental when not. I'd venture to suggest that most meetings aren't being run effectively and 'could have been an email'.
+If you have 3 meetings a day, each day, and it [takes approximately 23 minutes](https://lifehacker.com/how-long-it-takes-to-get-back-on-track-after-a-distract-1720708353) to return to productivity on a task post-meeting, you could be wasting about 70 mins a day, or about 6 hours a week just trying to get back into your flow/focus.
+You can see how important it is to not only make sure you've got good meeting hygiene, but also make scheduling a meeting an intentional act.
 
-Does the meeting often extend beyond the scope/purpose of the meeting? Are you grooming in standup.. etc?
+If you've got a lot of meetings, are all of them neccesary? Are you and your team just doing them because that's how it's always been done? Are those meetings still providing the same value as when they were originally created?
+I bet the answer to at least one of those questions is 'No'.
 
-Keep conversations focused. It is easy to tangent and waste significant time discussing adjacent issues that aren’t blockers.
+If the meeting you have is indeed valuable, now move on to review how it is being run, how focused, and how 'true to the mission' the meeting is. It's extremely easy to succumb to 'scope creep' in meetings, discussing items that are not actual blockers to implementation/development. Also review the duration of the meeting. If you schedule an hour, usually your team will take the whole hour. Could it be 30 or 45 minutes instead? Scheduling a meeting for an hour could be a compensation for a lack of focus eating up large amounts of meeting time. Get the meeting agenda and discussions tightened up, and try fitting into smaller time windows so you can spend more time on delivery.
 
-Identify someone as the meeting/time steward. They have the power to interrupt when they see the team is getting off base, psychological safety is eroding, or other similar issues
-
-Do you have too many meetings? There is a price to pay for context switching (approx 25 mins to refocus after an interruptions)
-
-Could the meeting be an email or slack message/thread?
+If possible, assign someone to be 'the focus keeper' or 'time keeper'. This role, while still participating in the meeting, is allowed to interrupt when they see the conversation taking a different direction or see something unproductive. An easy interupt is simply asking 'Is what we're discussing still relevant to the origianl topic', or 'Do we want to keep discussing this for 5 more minutes, or move on?'. It takes practice to recognize these moments, but having a psychologically safe and supported way to help keep teams focused will help everyone learn these skills and improve the team as a whole.
 
 # Retrospectives
 
-Taking time to reflect is important
+Taking time to reflect is an important part of the software lifecycle. This is a moment to celebrate wins and achievements, discuss process, identify areas for improvement, and get a dialogue going. Retro provides an avenue for continuous feedback on team health and process, constantly adjusting during the lifecycle of the team.
 
-Be open minded, honest, empathetic, and professional
+Celebration is important! The team is working hard towards goals, and pausing to congratulate one another and reflect on a job well done is imperitive for keeping morale high and momentum going. Use this opportunity to send your appreciates to your teammates and call out particularly exemplary performance. Share the love!
 
-Avoid making things personal. Focus on the impact / problem, not the person
+Retro also affords us the chance to discuss how things are going, how our process is inhibiting or accelerating us. We can reflect on what went well and what we want to change or try out for the next cycle. Nothing is set in stone, and taking a moment to commit to trying something new is an opportunity to learn and potentially find a new way of working the team likes better. And if it doesn't work, throw the idea in the bin and go back to what worked well or try something different again.
 
-Use something structured
+Retro is a space where psychological saftey is a must. When participating in retro, be open minded, honest, empathetic, and professional. There are ways to be direct and offer constructive feedback without being critical. Focus on the team and the impact/problem, rather than an individual's actions. There are so [many types of retrospectives](https://www.parabol.co/resources/sprint-retrospective-ideas/) out there, try one that best suits the team to get honest discussion going and generate some action items.
 
-Don’t forget to celebrate wins and your teammates
-
-Assign someone to run the retro (timing, organization, action items and follow up). If you can’t find someone on your team, ask around. There are several people in the org who know how to run an effective retrospective. Typically those that run retros don’t participate directly so they can remain objective.
+Another helpful tip is to assign someone to run the retro (timing, organization, action items and follow up). If you can’t find someone on your team, ask around. In order to remain objective, take notes, and monitor saftey, typically those that run retros don’t participate directly. It's not always possible to find someone external to your team to help lead, so having someone part of the team run the retro is perfectly acceptable. A good resource for running retros is the book [Agile Retrospectives](https://www.amazon.com/Agile-Retrospectives-Making-Teams-Great/dp/0977616649).
 
 # In Summary
 
-I hope these guidelines can help you in your team's efforts to deliver higher quality software with reduced effort
+None of these suggestions are hard and fast rules. Rules are meant to be broken, so take the suggestions and try them out. Some will fit your team and your company culutre and others may not. It's all about learning and iterating, both on the team and on the product you're building. I hope these guidelines can help you and your team's efforts to deliver higher quality software with reduced effort.
