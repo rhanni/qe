@@ -34,9 +34,19 @@ Building on that definition, we want to make sure we are _incrementally_ buildin
 
 Agile software development relies on continuous and incremental improvement, gathering feedback along the way. We do this so we can ensure we're calibrating our direction as much as possible.
 
+You've probably seen this image below. But if you haven't, it illustrates that you can incrementally build towards an end goal (a Car in this case) while slowly improving the user's experience by adding value along the way.
+If you need to get from Point A to Point B, you can technically use a skateboard to get there. A scooter will also work, but the scooter will be a bit more efficient than the skateboard. A bike will also be a bit better than a scooter, and so on.
+The thing is, you don't always want a Car or a Motorcycle. If you only need to move 20 feet, why use a car?
+
+Context matters for the problem you're trying to solve and you don't always want 'the fanciest solution'.
+Those cars, while powerful in transportation, take a long time to build. So if you're going to build a car, you should either be really sure your users need a car or build some incremental steps along the way to validate the direction and end goal. You'll end up delighting your customers along the way by shipping those incremental bits of value.
+
 ![Agile MVP](/static/images/agilemvp.png)
 
-Another core tenet of agile is being able to abandon ship or delete features at any time. Not everything we build will solve the problem we attempted to tackle. Sometimes things just don't stick. That's OK! These are good outcomes. And if we practiced good, incremental software delivery we know that we spent just enough time (and not more!) to come to a conculsion supported by real customer data.
+Another core tenet of agile is being able to abandon ship or delete features at any time. Not everything we build will solve the problem we attempted to tackle. Sometimes things just don't stick.
+That's OK! These are good outcomes as long as we were intentional in our process to arrive at the end state. And if we practiced good, incremental software delivery we know that we spent just enough time (and not more!) to come to a conculsion supported by real customer data.
+
+Building software incrementally can also increase the quality of your product. By doing small bits of feature delivery, the total change set is also small. This allows for higher quality code reviews and more focused testing and risk analysis. If we spend 4 weeks building 1 feature and deliver it in a big-bang release, there's a high chance something was missed and there ends up being bugs out in the wild.
 
 If you find yourself stuck, features are taking too long to ship, or a high degree of bugs are being introduced, use the following prompt in your next grooming or planning session to help refocus your team:
 
@@ -50,17 +60,17 @@ Planning and Grooming are the steps that grease the gears for the rest of the SD
 
 When teams have an understanding of the risks of the domain they're working in and the business need is clear and well defined, engineers have the best chance to develop bug free software that is secure, scalable, reliable, and well tested.
 
-If you're struggling to write good stories, cards, tickets, or whatever you call them, here's some prompts and guidelines for what a good story should contain:
+If you're struggling to write good user stories, cards, tickets, or whatever you call them, here's some prompts and guidelines for what a good story could contain:
 
-- On the whole, the ticket should be understandable by anyone in your ogananization or business line. This means eliminating as much technical jargon as possible. You should have clear and concise descriptions. Acronyms are well understood otherwise avoided.
+- Generally, the ticket should be understandable by anyone in your ogananization or business line. This means eliminating as much technical jargon from the core of the card as possible (save those for developer notes). You should have clear and concise descriptions. Acronyms are well understood otherwise avoided.
 - Each ticket should have a user story. This is the building block for the rest of the ticket: "As a [user type], I want to [do something] so that [I can achieve some goal]." If you can't write a user story, you don't have a clear understanding of the problem you're trying to solve.
-- If you're shipping features with UI components, attach Mock-ups or screenshots of what you're trying to build. This will help eliminate any visual design assumptions. If you can't make sure there is an acceptance critera or requirement to "Pair with UX" during the development process. Pairing with UX in the moment of development is a great way to iterate quickly on design and layout, rather than discovering the UI is faulty later on during the software delivery cycle.
+- If you're shipping features with UI components, attach Mock-ups or screenshots of what you're trying to build. This will help eliminate any visual design assumptions. If there aren't any mockups, make sure there is at least an acceptance critera or requirement to "Pair with UX" during the development process. Pairing with UX in the moment of development is a great way to iterate quickly on design and layout, rather than discovering the UI is faulty later on during the software delivery cycle.
 - Attach relevant data warehouse or analytics queries
 - Attach software documentation (3rd party or Internal), or API Docs
 - Attach customer feedback, support tickets, or recorded customer calls so the team can fill in any gaps or resolve ambiguities
 - Remove or qualify as many assumptions as possible. Assumptions can lead to divergence from the goal and can introduce bugs or missed requirements.
 - Identify potential risks (internal and external) to product, team, customer, code, 3rd parties, etc
-- Identify testing needs. Can the other developers test the ticket themselves? Does it need a specific Quality Engineer to test the ticket. More on this in [TODO: this blog post]
+- Identify testing needs. Can the other developers test the ticket themselves? Does it need a specific Quality Engineer to test the ticket? More on this in [Quality Evolution](https://qe-ruby.vercel.app/blog/quality-evolution)
 - Identify any code or inter/intra app dependencies. Does it need to be forward/backward compatible? What are the release and/or rollback stragegies if any?
 - Idenitfy post release monitoring, metrics, KPIs, alerting, experiments, etc.
 
@@ -68,7 +78,7 @@ Remember to keep stories small and incremental. A little bit of delivered value 
 
 # Acceptance criteria
 
-From all of the preparation work done in Planning and the beginning of Grooming, ACs (requirements, etc) distill all the information from above down into specific units of work. These points should be concise, clear, and tie back to the business value. Where possible, each of these ACs should correspond to both:
+From all of the preparation work done in Planning and the beginning of Grooming, Acceptance Criteria (ACs, or requirements, etc) distill the above information down into specific units of work. These points should be concise, clear, and tie back to the business value. Where possible, each of these ACs should correspond to both:
 
 - a code change
 - an automated test
