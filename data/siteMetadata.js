@@ -10,13 +10,11 @@ const siteMetadata = {
   siteRepo: 'https://github.com/rhanni/qe',
   siteLogo: '/static/images/logo.png',
   socialBanner: '/static/images/twitter-card.png',
-  mastodon: 'https://mastodon.social/@mastodonuser',
-  email: 'address@yoursite.com',
+  mastodon: '',
+  email: 'engineering.quality.blog@gmail.com',
   github: 'https://github.com/rhanni',
-  twitter: 'https://twitter.com/Twitter',
-  facebook: 'https://facebook.com',
-  youtube: 'https://youtube.com',
-  linkedin: 'https://www.linkedin.com',
+  twitter: '',
+  linkedin: 'https://www.linkedin.com/in/rhanni',
   locale: 'en-US',
   analytics: {
     // If you want to use an analytics provider you have to add it to the
